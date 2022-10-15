@@ -91,6 +91,11 @@ const structureLoginFieldsCheck = check('email').custom(async (value, { req }) =
 
 
 module.exports = {
-  registerValidation: [email, password, franchiseEmailExists, structureEmailExists],
-  loginValidation: [clientLoginFieldsCheck, franchiseLoginFieldsCheck, structureLoginFieldsCheck],
+  franchiseRegisterValidation: [email, password, franchiseEmailExists],
+  structureRegisterValidation: [email, password, structureEmailExists],
+  
+  clientLoginValidation: [clientLoginFieldsCheck],
+  franchiseLoginValidation: [franchiseLoginFieldsCheck],
+  structureLoginValidation: [structureLoginFieldsCheck]
+
 }
