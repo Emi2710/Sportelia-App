@@ -19,10 +19,12 @@ app.use(passport.initialize());
 //IMPORT ROUTES
 const clientRoutes = require('./routes/client');
 const franchiseRoutes = require('./routes/franchise');
+const structureRoutes = require('./routes/structure');
 
 //INITIALIZE ROUTES
 app.use('/api', clientRoutes);
 app.use('/api', franchiseRoutes);
+app.use('/api', structureRoutes);
 
 
 app.listen(8000, () => {
