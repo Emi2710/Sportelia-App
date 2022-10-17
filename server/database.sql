@@ -19,7 +19,6 @@ CREATE TABLE franchise(
     profile_pic VARCHAR, 
     description TEXT, 
     isActive BOOLEAN,
-    client_id INT
 );
 
 

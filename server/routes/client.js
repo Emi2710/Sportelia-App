@@ -1,13 +1,28 @@
 const { Router } = require('express');
 
-const { login, logout } = require('../controllers/client');
+const { registerFranchise,
+        login, 
+        logout, 
+        getPersonnalData, 
+        updatePersonnalData, 
+        getAllFranchise, 
+        getSpecificFranchise, 
+        updateSpecificFranchise
+     } = require('../controllers/client');
+
 const { validationMiddleware } = require('../middlewares/validation-middleware');
-const { clientLoginValidation } = require('../validators/auth');
+const {  clientLoginValidation, franchiseRegisterValidation  } = require('../validators/auth');
 const router = Router()
 
+router.post('/client/addFranchise', franchiseRegisterValidation, validationMiddleware, registerFranchise)
 router.post('/client/login', clientLoginValidation, validationMiddleware, login)
-router.get('/client/logout', logout)
+router.get('/client/logout', logout);
 
+router.get('/client/:id', getPersonnalData);
+router.put('/client/:id', updatePersonnalData);
 
+router.get('/franchises', getAllFranchise);
+router.get('/client/franchise/:id', getSpecificFranchise);
+router.put('/client/franchise/:id', updateSpecificFranchise);
 
 module.exports = router;
