@@ -11,7 +11,6 @@ const { structureLoginValidation } = require('../validators/auth');
 const router = Router()
 
 router.post('/structure/login', structureLoginValidation, validationMiddleware, login)
-router.get('/structure/logout', logout);
 
 router.get('/structure/:id', getPersonnalData);
 
