@@ -12,6 +12,9 @@ const email = check('email')
   .isEmail()
   .withMessage('Fournissez un email valide.')
 
+//role
+const isactive = check('isactive')
+
 
 //check if franchise email exists
 const franchiseEmailExists = check('email').custom(async (value) => {
@@ -67,6 +70,10 @@ const franchiseLoginFieldsCheck = check('email').custom(async (value, { req }) =
     throw new Error('Mot de passe incorrect')
   }
 
+  if (!user.rows[0].isactive) {
+    throw new Error('Vos droits pour accéder à cette application ont été désactivés')
+  }
+
   req.user = user.rows[0]
 })
 
@@ -82,6 +89,10 @@ const structureLoginFieldsCheck = check('email').custom(async (value, { req }) =
 
   if (!validPassword) {
     throw new Error('Mot de passe incorrect')
+  }
+
+  if (!user.rows[0].isactive) {
+    throw new Error('Vos droits pour accéder à cette application ont été désactivés')
   }
 
   req.user = user.rows[0]

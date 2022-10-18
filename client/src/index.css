@@ -1,13 +1,31 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Kanit:wght@400;600&display=swap');
+
+:root {
+  --font-kanit: 'Kanit', sans-serif;
+  --font-heebo: 'Heebo', sans-serif;
+
+  --color-blue: #B3D9C4;
+  --color-green: #D9ED92;
+  --color-actif: #DDEEE5;
+  --color-inactif: #F1D2D2;
+  --color-beige: #FCF9F6;
+  --color-dark: #03071E;
+  --color-white: #FFFFFF;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--font-kanit);
 }
