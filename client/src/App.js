@@ -12,6 +12,8 @@ import ClientLogin from './pages/auth/ClientLogin'
 import FranchiseLogin from './pages/auth/FranchiseLogin'
 import StructureLogin from './pages/auth/StructureLogin'
 
+import Franchises from './pages/client/franchises/Franchises'
+
 import { useSelector } from 'react-redux'
 import Login from './pages/auth/Login'
 
@@ -36,6 +38,9 @@ const App = () => {
 
         <Route element={<PrivateRoutes />}>
           <Route path='/' exact element={<Home />} />
+
+          <Route path="/client/franchises" exact element={<Franchises />} />
+
         </Route>
 
         <Route element={<RestrictedRoutes />}>

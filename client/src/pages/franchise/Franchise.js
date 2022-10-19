@@ -3,7 +3,10 @@ import Layout from '../../components/Layout'
 
 const Franchise = () => {
   return (
-    <Layout>Franchise</Layout>
+    <Layout>
+
+      Franchise
+    </Layout>
   )
 }
 

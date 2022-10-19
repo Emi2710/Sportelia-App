@@ -1,0 +1,54 @@
+.arrow {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: -8px;
+    z-index: 100;
+    transition: 850ms;
+}
+
+.arrow.active {
+    margin-left: 215px;
+    transition: 500ms;
+}
+
+.nav-menu {
+    background-color: #fff;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: -225px;
+    transition: 850ms;
+}
+
+.nav-menu.active {
+    left: 0;
+    transition: 500ms;
+}
+
+.nav-menu-items li {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.nav-menu-items li p {
+    margin: 15px;
+    font-size: 18px;;
+}
+
+.nav-menu-items {
+    width: 100%;
+    padding-top: 20%;
+}
+
+.logout-btn button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-top: 160%;
+}
