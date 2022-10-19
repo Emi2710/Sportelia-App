@@ -78,7 +78,7 @@ exports.getPersonnalData = async(req, res) => {
     try {
         const { email } = req.params;
         const getPersonnalData = await db.query("SELECT * FROM client WHERE email = $1", [email])
-        res.json(getPersonnalData.rows[0])
+        res.json(getPersonnalData.rows)
     } catch (error) {
         console.error(error.message);
     }

@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
-import Dashboard from './dashboard/Dashboard'
+import Dashboard from './franchises/Dashboard'
 import Navbar from '../../components/Navbar'
 
 

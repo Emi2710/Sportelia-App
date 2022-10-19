@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { onFranchiseRegistration } from '../../../api/auth'
+import { images } from '../../../assets'
+
 
 const AddFranchise = () => {
     const [values, setValues] = useState({
@@ -44,15 +46,15 @@ const AddFranchise = () => {
     <div>
       
       <div>
-        <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFranchise">
-        Ajouter une franchise
+        <button type="button" className="add-franchise-btn" data-bs-toggle="modal" data-bs-target="#addFranchise">
+         <img src={images.plus} alt="Ajouter une franchise" />Ajouter
         </button>
 
         <div className="modal fade" id="addFranchise" tabIndex="-1" aria-labelledby="postuler" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Modifier une franchise</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Ajouter une franchise</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -116,7 +118,7 @@ const AddFranchise = () => {
             id='profilePic'
             name='profile_pic'
             value={values.profile_pic}
-            placeholder='Photo de profil'
+            placeholder="Lien de l'image"
             required
           />
         </div>
@@ -148,7 +150,7 @@ const AddFranchise = () => {
 
         <div className="modal-footer">
                
-            <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Confirmer</button>    
+            <button type="submit" className="btn btn-dark" data-bs-dismiss="modal">Confirmer</button>    
             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Annuler</button>    
                 
                 

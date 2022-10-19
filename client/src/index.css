@@ -44,3 +44,19 @@ body {
     background-color: var(--color-dark);
     color: #FFFFFF;
 }
+
+.btn-actif {
+    background: var(--color-actif);
+    border: none;
+    padding: 0.3em 1em;
+    color: #4C9966;
+    border-radius: 30px;
+}
+
+.btn-desactive {
+    background: var(--color-inactif);
+    border: none;
+    padding: 0.3em 1em;
+    color: #994C4C;
+    border-radius: 30px;
+}

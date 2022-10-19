@@ -8,6 +8,8 @@ import loop from './loop.svg';
 import plus from './plus.svg';
 import profilepic from './profilepic.png';
 import logo from './sportelia-logo.svg';
+import logotwo from './logo-2.png';
+import statut from './statut.png';
 
 export default {
     arrow,
@@ -19,5 +21,7 @@ export default {
     loop,
     plus,
     profilepic,
-    logo
+    logo,
+    logotwo,
+    statut
 }

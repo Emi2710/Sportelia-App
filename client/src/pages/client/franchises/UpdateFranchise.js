@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { images } from '../../../assets';
+
 
 const UpdateFranchise = ({franchise}) => {
 
@@ -35,9 +37,9 @@ const UpdateFranchise = ({franchise}) => {
     <div>
       
       <div>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#id${franchise.id}`}>
-        Modifier
-        </button>
+        <div className="edit-franchise-btn" data-bs-toggle="modal" data-bs-target={`#id${franchise.id}`}>
+        <img src={images.edit} alt="Icone de modification" />
+        </div>
 
         <div className="modal fade" id={`id${franchise.id}`} onClick={() => setFranchiseId(franchise.id)} tabIndex="-1" aria-labelledby="postuler" aria-hidden="true">
         <div className="modal-dialog">
@@ -47,15 +49,19 @@ const UpdateFranchise = ({franchise}) => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" onClick={() => setFranchiseId(franchise.id)} aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              
-
+                <label htmlFor='email' className='form-label'>
+                Nom
+                </label>
                 <input
                 type="text"
                 className="form-control"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 />
-
+                
+                <label htmlFor='email' className='form-label mt-3'>
+                  Email
+                </label>
                 <input
                 type="text"
                 className="form-control"
@@ -63,6 +69,9 @@ const UpdateFranchise = ({franchise}) => {
                 onChange={e => setEmail(e.target.value)}
                 />
 
+                <label htmlFor='email' className='form-label mt-3'>
+                  Photo de profil
+                </label>
                 <input
                 type="text"
                 className="form-control"
@@ -70,7 +79,9 @@ const UpdateFranchise = ({franchise}) => {
                 onChange={e => setProfilePic(e.target.value)}
                 />
 
-                
+                <label htmlFor='email' className='form-label mt-3'>
+                  Desccription
+                </label>
                 <input
                 type="text"
                 className="form-control"
@@ -80,18 +91,18 @@ const UpdateFranchise = ({franchise}) => {
 
                 {franchise.isactive && 
                 <>
-                  <p>Désactiver la franchise ? <input type="checkbox" value={isActive} onChange={e => setIsActive(false)} /> </p>
+                  <p className='mt-3'>Désactiver la franchise ? <input type="checkbox" value={isActive} onChange={e => setIsActive(false)} /> </p>
                 </>}
 
                  {!franchise.isactive && 
                 <>
-                  <p>Réactiver la franchise ? <input type="checkbox" value={isActive} onChange={e => setIsActive(true)} /> </p>
+                  <p className='mt-3'>Activer la franchise ? <input type="checkbox" value={isActive} onChange={e => setIsActive(true)} /> </p>
                 </>}
 
             </div>
             <div className="modal-footer">
                
-                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={e => updateData(e)}>Confirmer</button>    
+                    <button type="button" className="btn btn-dark" data-bs-dismiss="modal" onClick={e => updateData(e)}>Confirmer</button>    
                     <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Annuler</button>    
                 
                 

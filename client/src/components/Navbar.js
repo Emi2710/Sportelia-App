@@ -40,21 +40,36 @@ const Navbar = () => {
       </Link>  
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
         
+        
         <ul className='nav-menu-items'>
           <li>
-            <img src={images.dashboard} alt="Icone de menu" />
-            <p>Dashboard</p>
+            <img src={images.logotwo} alt="Logo Sportelia" className='navbar-logo' />
           </li>
-          <li>
-            <img src={images.franchise} alt="Icone de menu" />
-            <p>Franchises</p>
-          </li>
+          <Link to="/">
+            <li>
+              <img src={images.dashboard} alt="Icone de menu" />
+              <p>Dashboard</p>
+            </li>  
+          </Link>
+          
+          {secureLocalStorage.getItem('role') ==='proprietaire' && <>
+          <Link to="/">
+            <li>
+              <img src={images.franchise} alt="Icone de menu" />
+              <p>Franchises</p>
+            </li>  
+          </Link>
+          
+          </>}
 
           {secureLocalStorage.getItem('role') ==='franchise' && <>
+          <Link to="/">
           <li>
             <img src={images.franchise} alt="Icone de menu" />
             <p>Structures</p>
-          </li>
+          </li>  
+          </Link>
+          
           </>}
 
           {isAuth ? (

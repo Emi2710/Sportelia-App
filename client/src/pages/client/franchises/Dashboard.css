@@ -1,0 +1,111 @@
+.dashboard-client-container {
+    padding: 1em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+}
+
+.client_dashboard_greeting h1 img {
+    width: 40px;
+}
+
+.client_dashboard_greeting h1 {
+    font-weight: bolder;
+    margin-top: 5em;
+}
+
+
+.client-user-info {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-heebo);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.client-user-info img{
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.edit-client-info {
+    display: flex;
+}
+
+.edit-client-info img {
+    width: 25px;
+    margin-left: 12px;
+}
+
+.edit-client-info img:hover {
+    cursor: pointer;
+}
+
+.add-franchise-btn {
+    background: var(--color-dark);
+    border: none;
+    color: #fff;
+    padding-right: 1rem;
+    border-radius: 16px;
+    min-width: 120px;
+}
+
+.add-franchise-btn img {
+    width: 30px;
+}
+
+.loop-img {
+    width: 30px;
+}
+
+.franchise-table-heading p {
+    width: 50%;
+    padding: 0.5em;
+}
+
+.franchise-table-heading p:hover {
+    cursor: pointer;
+}
+
+
+.franchise-table-heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: var(--color-blue);
+}
+
+
+
+.edit-franchise-btn img {
+    width: 30px;
+}
+
+.edit-franchise-btn img:hover {
+    cursor: pointer;
+}
+
+.franchise {
+    margin-bottom: 1em;
+    box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 12px;
+}
+
+.franchise-name {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+.franchise-mail {
+    font-size: 14px;
+    opacity: 80%;
+    margin-top: 0;
+}
