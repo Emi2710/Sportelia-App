@@ -66,9 +66,9 @@ exports.login = async (req, res) => {
 //get personnal info
 exports.getPersonnalData = async(req, res) => {
     try {
-        const { id } = req.params;
-        const getPersonnalData = await db.query("SELECT * FROM franchise WHERE id = $1", [id])
-        res.json(getPersonnalData.rows[0])
+        const { email } = req.params;
+        const getPersonnalData = await db.query("SELECT * FROM franchise WHERE email = $1", [email])
+        res.json(getPersonnalData.rows)
     } catch (error) {
         console.error(error.message);
     }
@@ -81,17 +81,11 @@ exports.updatePersonnalData = async(req, res) => {
       const { id } = req.params;
       const { 
         name,
-        email,
-        profile_pic,
-        description,
-        isActive  } = req.body;
+        email  } = req.body;
 
-      const updatePersonnalData = await db.query("UPDATE franchise SET name = $1, email = $2, profile_pic = $3, description = $4, isActive = $5 WHERE id = $6 ", [
+      const updatePersonnalData = await db.query("UPDATE franchise SET name = $1, email = $2 WHERE id = $3 ", [
         name,
         email,
-        profile_pic,
-        description,
-        isActive,
         id
       ]);
       
@@ -115,8 +109,8 @@ exports.getAllStructure = async(req, res) => {
 exports.getSpecificStructure = async(req, res) => {
     try {
         const { id } = req.params;
-        const getSpecificStructure = await db.query("SELECT * FROM structure WHERE id = $1", [id])
-        res.json(getSpecificStructure.rows[0])
+        const getSpecificStructure = await db.query("SELECT * FROM structure WHERE franchise_id = $1", [id])
+        res.json(getSpecificStructure.rows)
     } catch (error) {
         console.error(error.message);
     }

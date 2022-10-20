@@ -17,7 +17,7 @@ const router = Router()
 router.post('/franchise/:id/addStructure', structureRegisterValidation, validationMiddleware, registerStructure)
 router.post('/franchise/login', franchiseLoginValidation, validationMiddleware, login)
 
-router.get('/franchise/:id', getPersonnalData);
+router.get('/franchise/:email', getPersonnalData);
 router.put('/franchise/:id', updatePersonnalData);
 
 router.get('/structures', getAllStructure);

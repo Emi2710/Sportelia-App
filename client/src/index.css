@@ -51,6 +51,7 @@ body {
     padding: 0.3em 1em;
     color: #4C9966;
     border-radius: 30px;
+    font-size: 16px;
 }
 
 .btn-desactive {
@@ -59,4 +60,5 @@ body {
     padding: 0.3em 1em;
     color: #994C4C;
     border-radius: 30px;
+    font-size: 16px;
 }

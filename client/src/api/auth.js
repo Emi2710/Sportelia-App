@@ -28,3 +28,12 @@ export async function onFranchiseRegistration(registrationData) {
   )
 }
 
+/*export async function onStructureRegistration(registrationData) {
+  return await axios.post(
+    'http://localhost:8000/api/franchise/5/addStructure',
+    registrationData
+  )
+}*/
+
+
+

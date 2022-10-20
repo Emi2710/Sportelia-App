@@ -4,7 +4,7 @@ import UpdateFranchise from './UpdateFranchise';
 
 import { images } from '../../../assets';
 
-const Franchises = () => {
+const Franchises = ({data}) => {
     
     const [filterGallery, setFilterGallery] = useState([]);
 
@@ -15,7 +15,7 @@ const Franchises = () => {
     
     const getFranchises = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/franchises")
+            const response = await fetch(`http://localhost:8000/api/franchise/structure/${data.id}`)
             const jsonData = await response.json()
 
             setFranchises(jsonData)
@@ -38,10 +38,10 @@ const Franchises = () => {
   return (
     <div>
         <div className='franchise-table-header mt-5 d-flex justify-content-between align-items-center'>
-            <h2 className=''>Toutes les franchises Sportelia</h2>
+            <h2 className=''>Toutes vos structures</h2>
             <div className='d-flex align-items-center'>
                 <img src={images.loop} alt="Icone de recherche" className='loop-img' />
-                <AddFranchise />
+                <AddFranchise data={data}/>
             </div>    
         </div>
         

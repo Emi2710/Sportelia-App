@@ -7,6 +7,8 @@ const UpdateFranchise = ({franchise}) => {
   const [franchiseId, setFranchiseId] = useState(franchise.id);
   const [name, setName] = useState(franchise.name);
   const [email, setEmail] = useState(franchise.email);
+  const [address, setAddress] = useState(franchise.address);
+  const [phone, setPhone] = useState(franchise.phone);
   const [profile_pic, setProfilePic] = useState(franchise.profile_pic);
   const [description, setDescription] = useState(franchise.description);
   const [isActive, setIsActive] = useState(franchise.isactive);
@@ -15,9 +17,9 @@ const UpdateFranchise = ({franchise}) => {
     const updateData = async e => {
     e.preventDefault();
     try {
-      const body = { name, email, profile_pic, description, isActive };
+      const body = { name, email, address, phone, profile_pic, description, isActive };
       const response = await fetch(
-        `http://localhost:8000/api/client/franchise/${franchise.id}`,
+        `http://localhost:8000/api/franchise/structure/${franchise.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -67,6 +69,26 @@ const UpdateFranchise = ({franchise}) => {
                 className="form-control"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                />
+
+                 <label htmlFor='email' className='form-label mt-3'>
+                  Adresse postale
+                </label>
+                <input
+                type="text"
+                className="form-control"
+                value={address}
+                onChange={e => setAddress(e.target.value)}
+                />
+
+                 <label htmlFor='email' className='form-label mt-3'>
+                  Numéro de téléphone
+                </label>
+                <input
+                type="text"
+                className="form-control"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
                 />
 
                 <label htmlFor='email' className='form-label mt-3'>
