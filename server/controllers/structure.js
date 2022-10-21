@@ -32,9 +32,9 @@ exports.login = async (req, res) => {
 //get personnal info
 exports.getPersonnalData = async(req, res) => {
     try {
-        const { id } = req.params;
-        const getPersonnalData = await db.query("SELECT * FROM structure WHERE id = $1", [id])
-        res.json(getPersonnalData.rows[0])
+        const { email } = req.params;
+        const getPersonnalData = await db.query("SELECT * FROM structure WHERE email = $1", [email])
+        res.json(getPersonnalData.rows)
     } catch (error) {
         console.error(error.message);
     }

@@ -121,8 +121,8 @@ exports.getSpecificStructure = async(req, res) => {
 exports.updateSpecificStructure = async(req, res) => {
   try {
       const { id } = req.params;
-      const { name, email, address, phone, profile_pic, description, isActive  } = req.body;
-      const updateStructure = await db.query("UPDATE structure SET name = $1, email = $2, address = $3, phone = $4, profile_pic = $5, description = $6, isActive = $7 WHERE id = $8 ", [name, email, address, phone, profile_pic, description, isActive, id]);
+      const { name, email, address, phone, profile_pic, description, isActive, boissons, mailing, premium  } = req.body;
+      const updateStructure = await db.query("UPDATE structure SET name = $1, email = $2, address = $3, phone = $4, profile_pic = $5, description = $6, isActive = $7, boissons = $8, mailing = $9, premium = $10 WHERE id = $11 ", [name, email, address, phone, profile_pic, description, isActive, boissons, mailing, premium, id]);
       
       res.json("Les informations ont bien été modifiées");
   } catch (error) {

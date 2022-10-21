@@ -12,7 +12,7 @@ const router = Router()
 
 router.post('/structure/login', structureLoginValidation, validationMiddleware, login)
 
-router.get('/structure/:id', getPersonnalData);
+router.get('/structure/:email', getPersonnalData);
 
 
 module.exports = router;

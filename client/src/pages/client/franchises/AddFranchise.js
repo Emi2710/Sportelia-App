@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { onFranchiseRegistration } from '../../../api/auth'
 import { images } from '../../../assets'
 
+import emailjs from '@emailjs/browser';
 
 const AddFranchise = () => {
     const [values, setValues] = useState({
@@ -10,6 +11,11 @@ const AddFranchise = () => {
     password: '',
     profile_pic: '',
     description: '',
+  })
+
+  const [emailValues, setEmailValues] = useState({
+    email: '',
+    password: ''
   })
 
   const [error, setError] = useState(false)
@@ -33,6 +39,19 @@ const AddFranchise = () => {
             password: '',
             profile_pic: '',
             description: '', })
+
+      emailjs.send('service_wn34fcm', 'template_f928ougs', values, 'xr2eEICvP8Ow1wZ4X')
+      .then(response => {
+        console.log('SUCCESS!', response);
+        setEmailValues({
+          email: values.email,
+          password: values.password,
+        });
+        
+      }, error => {
+        console.log('FAILED...', error);
+      });
+
 
       
     } catch (error) {
@@ -58,7 +77,7 @@ const AddFranchise = () => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-                 <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
+      <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
 
         <div className='mb-3'>
           <label htmlFor='email' className='form-label'>

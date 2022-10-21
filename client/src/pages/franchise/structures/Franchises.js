@@ -78,6 +78,7 @@ const Franchises = ({data}) => {
                         {franchise.isactive && <><button className='btn-actif'>Actif</button></>}
                         {!franchise.isactive && <><button className='btn-desactive'>Désactivé</button> </>}
                     </p>
+                    {console.log(franchise)}
                     </div>
                     <UpdateFranchise franchise={franchise} />
                     

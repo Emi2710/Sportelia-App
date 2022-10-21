@@ -12,12 +12,16 @@ const UpdateFranchise = ({franchise}) => {
   const [profile_pic, setProfilePic] = useState(franchise.profile_pic);
   const [description, setDescription] = useState(franchise.description);
   const [isActive, setIsActive] = useState(franchise.isactive);
+  const [boissons, setBoissons] = useState(franchise.boissons);
+  const [mailing, setMailing] = useState(franchise.mailing);
+  const [premium, setPremium] = useState(franchise.premium);
 
 
     const updateData = async e => {
     e.preventDefault();
     try {
-      const body = { name, email, address, phone, profile_pic, description, isActive };
+      const body = { name, email, address, phone, profile_pic, description, isActive, boissons, mailing, premium };
+      const templateParams = { email: email}
       const response = await fetch(
         `http://localhost:8000/api/franchise/structure/${franchise.id}`,
         {
@@ -26,6 +30,13 @@ const UpdateFranchise = ({franchise}) => {
           body: JSON.stringify(body)
         }
       );
+
+      emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
+              .then(response => {
+                console.log('SUCCESS!', response); 
+              }, error => {
+                console.log('FAILED...', error);
+              })
 
       window.location = "/";
     } catch (err) {
@@ -120,6 +131,44 @@ const UpdateFranchise = ({franchise}) => {
                 <>
                   <p className='mt-3'>Activer la franchise ? <input type="checkbox" onChange={e => setIsActive(true)} /> </p>
                 </>}
+
+                <h5 className='mt-5'>Les permissions</h5>
+                {franchise.boissons && 
+                <>
+                  <p className='mt-3'>Désactiver la permission de vendre des boissons ? <input type="checkbox" onChange={e => setBoissons(false)} /> </p>
+                </>}
+
+                 {!franchise.boissons && 
+                <>
+                  <p className='mt-3'>Activer la permission de vendre des boissons ? <input type="checkbox" onChange={e => setBoissons(true)} /> </p>
+                </>}
+
+
+
+                {franchise.mailing && 
+                <>
+                  <p className='mt-3'>Désactiver la permission d'envoyer des mails' ? <input type="checkbox" onChange={e => setMailing(false)} /> </p>
+                </>}
+
+                 {!franchise.mailing && 
+                <>
+                  <p className='mt-3'>Activer la permission d'envoyer des mails ? <input type="checkbox" onChange={e => setMailing(true)} /> </p>
+                </>}
+
+
+
+                {franchise.premium && 
+                <>
+                  <p className='mt-3'>Désactiver la permission d'accéder à la salle premium ? <input type="checkbox" onChange={e => setPremium(false)} /> </p>
+                </>}
+
+                 {!franchise.premium && 
+                <>
+                  <p className='mt-3'>Activer la permission d'accéder à la salle premium ? <input type="checkbox" onChange={e => setPremium(true)} /> </p>
+                </>}
+
+
+                
 
             </div>
             <div className="modal-footer">

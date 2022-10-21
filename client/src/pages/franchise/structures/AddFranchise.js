@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { images } from '../../../assets'
 //import { onStructureRegistration } from '../../../api/auth'
 import axios from 'axios'
+import emailjs from '@emailjs/browser'
+
 
 
 const AddFranchise = ({data}) => {
@@ -13,6 +15,11 @@ const AddFranchise = ({data}) => {
     phone: '',
     profile_pic: '',
     description: '',
+  })
+
+  const [emailValues, setEmailValues] = useState({
+    email: '',
+    password: '',
   })
 
   const [error, setError] = useState(false)
@@ -42,6 +49,18 @@ const AddFranchise = ({data}) => {
             phone: '',
             profile_pic: '',
             description: '', })
+      
+       emailjs.send('service_wn34fcm', 'template_f928oug', values, 'xr2eEICvP8Ow1wZ4X')
+      .then(response => {
+        console.log('SUCCESS!', response);
+        setEmailValues({
+          email: values.email,
+          password: values.passwords,
+        });
+        
+      }, error => {
+        console.log('FAILED...', error);
+      });
 
       
     } catch (error) {
