@@ -28,12 +28,18 @@ export async function onFranchiseRegistration(registrationData) {
   )
 }
 
-/*export async function onStructureRegistration(registrationData) {
+//EMAIL
+export async function onAddEmail(emailData) {
   return await axios.post(
-    'http://localhost:8000/api/franchise/5/addStructure',
-    registrationData
+    'http://localhost:8000/api/sendEmail', emailData
   )
-}*/
+}
+
+export async function onChangeEmail(onChangeEmail) {
+  return await axios.post(
+    'http://localhost:8000/api/sendEmail/update', onChangeEmail
+  )
+}
 
 
 

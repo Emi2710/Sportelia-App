@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { onChangeEmail } from '../../../api/auth';
 import { images } from '../../../assets';
-import emailjs from '@emailjs/browser';
 
 
 const UpdateFranchise = ({franchise}) => {
@@ -13,9 +13,7 @@ const UpdateFranchise = ({franchise}) => {
   const [description, setDescription] = useState(franchise.description);
   const [isActive, setIsActive] = useState(franchise.isactive);
 
-  /*const [emailValues, setEmailValues] = useState({
-    email: ''
-  })*/
+  
 
 
     const updateData = async e => {
@@ -31,12 +29,8 @@ const UpdateFranchise = ({franchise}) => {
           body: JSON.stringify(body)
         });
 
-        /*emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
-              .then(response => {
-                console.log('SUCCESS!', response); 
-              }, error => {
-                console.log('FAILED...', error);
-              })*/
+        await onChangeEmail(body)
+
       
   
       window.location = "/";

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { onChangeEmail } from '../../../api/auth';
 import { images } from '../../../assets';
 
-import emailjs from '@emailjs/browser'
 
 
 const UpdateFranchise = ({franchise}) => {
@@ -23,7 +23,6 @@ const UpdateFranchise = ({franchise}) => {
     e.preventDefault();
     try {
       const body = { name, email, address, phone, profile_pic, description, isActive, boissons, mailing, premium };
-      const templateParams = { email: email}
       const response = await fetch(
         `http://localhost:8000/api/franchise/structure/${franchise.id}`,
         {
@@ -33,12 +32,8 @@ const UpdateFranchise = ({franchise}) => {
         }
       );
 
-      /*emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
-              .then(response => {
-                console.log('SUCCESS!', response); 
-              }, error => {
-                console.log('FAILED...', error);
-              })*/
+      await onChangeEmail(body)
+
 
       window.location = "/";
     } catch (err) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { images } from '../../../assets'
 //import { onStructureRegistration } from '../../../api/auth'
 import axios from 'axios'
-import emailjs from '@emailjs/browser'
+import { onAddEmail } from '../../../api/auth'
 
 
 
@@ -17,10 +17,7 @@ const AddFranchise = ({data}) => {
     description: '',
   })
 
-  const [emailValues, setEmailValues] = useState({
-    email: '',
-    password: '',
-  })
+  
 
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -39,6 +36,8 @@ const AddFranchise = ({data}) => {
     try {
       const { data } = await onStructureRegistration(values)
 
+      await onAddEmail(values)
+
       setError('')
       setSuccess(data.message)
       setValues({ 
@@ -50,17 +49,7 @@ const AddFranchise = ({data}) => {
             profile_pic: '',
             description: '', })
       
-       /*emailjs.send('service_z3o02ig', 'template_venjww4', emailValues, 'xr2eEICvP8Ow1wZ4X')
-      .then(response => {
-        console.log('SUCCESS!', response);
-        setEmailValues({
-          email: values.email,
-          password: values.password
-        })
-        
-      }, error => {
-        console.log('FAILED...', error);
-      });*/
+       
 
       window.location = "/";
 

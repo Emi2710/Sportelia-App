@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react'
-import { onFranchiseRegistration } from '../../../api/auth'
+import { onFranchiseRegistration, onAddEmail } from '../../../api/auth'
 import { images } from '../../../assets'
 
-//import emailjs from '@emailjs/browser';
 
 const AddFranchise = () => {
 
@@ -14,10 +13,7 @@ const AddFranchise = () => {
     description: '',
   })
 
-  const [emailValues, setEmailValues] = useState({
-    email: '',
-    password: ''
-  })
+
 
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -32,6 +28,8 @@ const AddFranchise = () => {
     try {
       const { data } = await onFranchiseRegistration(values)
 
+      await onAddEmail(values)
+
       setError('')
       setSuccess(data.message)
       setValues({ 
@@ -41,16 +39,6 @@ const AddFranchise = () => {
             profile_pic: '',
             description: '', })
       
-      /*emailjs.send('service_z3o02ig', 'template_venjww4', 'xr2eEICvP8Ow1wZ4X')
-      .then(response => {
-        console.log('SUCCESS!', response);
-        
-        
-      }, error => {
-        console.log('FAILED...', error);
-      });*/
-
-
       
       window.location = "/";
       

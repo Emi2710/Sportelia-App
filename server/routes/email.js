@@ -25,8 +25,7 @@ router.post('/sendEmail', async(req, res) => {
        {
            "to":[
               {
-                 "email":"sadegayovho@gmail.com",
-                 "name":"Bob Anderson"
+                 "email":`${email}`,
               },
               
            ],
@@ -35,6 +34,40 @@ router.post('/sendEmail', async(req, res) => {
               "password":`${password}`
            },
            "subject":"Vous avez été ajouté à l'application Sportelia"
+        },
+
+    ]
+
+}).then(function(data) {
+  console.log(data);
+}, function(error) {
+  console.error(error);
+});
+})
+
+router.post('/sendEmail/update', async(req, res) => {
+
+    const {email} = req.body;
+
+    new SibApiV3Sdk.TransactionalEmailsApi().sendTransacEmail({
+
+     "sender":{ "email":"deadourfreedom@gmail.com", "name":"SPORTELIA"},
+     "subject":"Vos droits/informations ont été modifiés.",
+     "templateId":4,
+     "params":{
+        "greeting":"This is the default greeting",
+        "headline":"This is the default headline"
+     },
+     "messageVersions":[
+       //Definition for Message Version 1 
+       {
+           "to":[
+              {
+                 "email":`${email}`,
+              },
+              
+           ],
+           "subject":"Vos droits/informations ont été modifiés."
         },
 
     ]
