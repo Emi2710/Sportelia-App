@@ -20,7 +20,6 @@ const UpdateFranchise = ({franchise}) => {
     e.preventDefault();
     try {
       const body = { name, email, profile_pic, description, isActive };
-      const templateParams = { email: email}
       const response = await fetch(
         `/client/franchise/${franchise.id}`,
         {

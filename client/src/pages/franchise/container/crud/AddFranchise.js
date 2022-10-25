@@ -224,7 +224,7 @@ const AddFranchise = ({data}) => {
   
   async function onStructureRegistration(registrationData) {
   return await axios.post(
-    `http://localhost:8000/api/franchise/${data.id}/addStructure`,
+    `/api/franchise/${data.id}/addStructure`,
     registrationData
   )
 }
