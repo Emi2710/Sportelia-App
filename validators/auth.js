@@ -47,9 +47,9 @@ const clientLoginFieldsCheck = check('email').custom(async (value, { req }) => {
     throw new Error("Cet email n'existe pas")
   }
 
-  const validPassword = await compare(req.body.password, user.rows[0].password)
+  //const validPassword = await compare(req.body.password, user.rows[0].password)
 
-  if (!validPassword) {
+  if (req.body.password !== user.rows[0].password) {
     throw new Error('Mot de passe incorrect')
   }
 
