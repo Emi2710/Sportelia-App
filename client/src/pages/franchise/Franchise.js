@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import Dashboard from './structures/Dashboard'
+import Dashboard from './container/Dashboard'
 
 const Franchise = () => {
   return (
     <Layout>
-
       <Dashboard />
     </Layout>
   )

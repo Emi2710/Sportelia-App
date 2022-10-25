@@ -1,41 +1,38 @@
-import React, { useState } from 'react'
-import { onChangeEmail } from '../../../api/auth';
-import { images } from '../../../assets';
-
+import React, { useState } from 'react';
+import { onChangeEmail } from '../../../../api/auth';
+import { images } from '../../../../assets';
 
 
 const UpdateFranchise = ({franchise}) => {
 
   const [franchiseId, setFranchiseId] = useState(franchise.id);
+  
   const [name, setName] = useState(franchise.name);
   const [email, setEmail] = useState(franchise.email);
-  const [address, setAddress] = useState(franchise.address);
-  const [phone, setPhone] = useState(franchise.phone);
   const [profile_pic, setProfilePic] = useState(franchise.profile_pic);
   const [description, setDescription] = useState(franchise.description);
   const [isActive, setIsActive] = useState(franchise.isactive);
-  const [boissons, setBoissons] = useState(franchise.boissons);
-  const [mailing, setMailing] = useState(franchise.mailing);
-  const [premium, setPremium] = useState(franchise.premium);
+
+  
 
 
     const updateData = async e => {
     e.preventDefault();
     try {
-      const body = { name, email, address, phone, profile_pic, description, isActive, boissons, mailing, premium };
+      const body = { name, email, profile_pic, description, isActive };
+      const templateParams = { email: email}
       const response = await fetch(
-        `http://localhost:8000/api/franchise/structure/${franchise.id}`,
+        `http://localhost:8000/api/client/franchise/${franchise.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body)
-        }
-      );
+        });
 
-      await onChangeEmail(body)
-
-
-      window.location = "/";
+        await onChangeEmail(body)
+  
+        window.location = "/";
+        
     } catch (err) {
       console.error(err.message);
     }
@@ -79,26 +76,6 @@ const UpdateFranchise = ({franchise}) => {
                 onChange={e => setEmail(e.target.value)}
                 />
 
-                 <label htmlFor='email' className='form-label mt-3'>
-                  Adresse postale
-                </label>
-                <input
-                type="text"
-                className="form-control"
-                value={address}
-                onChange={e => setAddress(e.target.value)}
-                />
-
-                 <label htmlFor='email' className='form-label mt-3'>
-                  Numéro de téléphone
-                </label>
-                <input
-                type="text"
-                className="form-control"
-                value={phone}
-                onChange={e => setPhone(e.target.value)}
-                />
-
                 <label htmlFor='email' className='form-label mt-3'>
                   Photo de profil
                 </label>
@@ -128,44 +105,6 @@ const UpdateFranchise = ({franchise}) => {
                 <>
                   <p className='mt-3'>Activer la franchise ? <input type="checkbox" onChange={e => setIsActive(true)} /> </p>
                 </>}
-
-                <h5 className='mt-5'>Les permissions</h5>
-                {franchise.boissons && 
-                <>
-                  <p className='mt-3'>Désactiver la permission de vendre des boissons ? <input type="checkbox" onChange={e => setBoissons(false)} /> </p>
-                </>}
-
-                 {!franchise.boissons && 
-                <>
-                  <p className='mt-3'>Activer la permission de vendre des boissons ? <input type="checkbox" onChange={e => setBoissons(true)} /> </p>
-                </>}
-
-
-
-                {franchise.mailing && 
-                <>
-                  <p className='mt-3'>Désactiver la permission d'envoyer des mails' ? <input type="checkbox" onChange={e => setMailing(false)} /> </p>
-                </>}
-
-                 {!franchise.mailing && 
-                <>
-                  <p className='mt-3'>Activer la permission d'envoyer des mails ? <input type="checkbox" onChange={e => setMailing(true)} /> </p>
-                </>}
-
-
-
-                {franchise.premium && 
-                <>
-                  <p className='mt-3'>Désactiver la permission d'accéder à la salle premium ? <input type="checkbox" onChange={e => setPremium(false)} /> </p>
-                </>}
-
-                 {!franchise.premium && 
-                <>
-                  <p className='mt-3'>Activer la permission d'accéder à la salle premium ? <input type="checkbox" onChange={e => setPremium(true)} /> </p>
-                </>}
-
-
-                
 
             </div>
             <div className="modal-footer">

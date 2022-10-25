@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddFranchise from './AddFranchise';
 import UpdateFranchise from './UpdateFranchise';
 
-import { images } from '../../../assets';
+import { images } from '../../../../assets';
 
 const Franchises = ({data}) => {
     

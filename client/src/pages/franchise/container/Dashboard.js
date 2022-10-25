@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import './Dashboard.css';
 import { images } from '../../../assets';
-import { Link } from 'react-router-dom';
 
 import secureLocalStorage from 'react-secure-storage'
-import UpdateUserInfo from './UpdateUserInfo';
-import Franchises from './Franchises';
+import UpdateUserInfo from './user-info/UpdateUserInfo';
+import Franchises from './crud/Franchises';
 
 const Dashboard = () => {
 

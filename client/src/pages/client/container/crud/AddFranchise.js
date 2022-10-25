@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
-import { onFranchiseRegistration, onAddEmail } from '../../../api/auth'
-import { images } from '../../../assets'
+import { onFranchiseRegistration, onAddEmail } from '../../../../api/auth'
+import { images } from '../../../../assets'
 
 
 const AddFranchise = () => {

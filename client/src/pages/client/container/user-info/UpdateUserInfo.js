@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { images } from '../../../assets'
-import secureLocalStorage from 'react-secure-storage';
+import { images } from '../../../../assets'
 
 const UpdateUserInfo = ({data}) => {
 
