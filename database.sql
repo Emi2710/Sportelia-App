@@ -40,7 +40,10 @@ CREATE TABLE structure(
     profile_pic VARCHAR, 
     description TEXT, 
     isActive BOOLEAN,
-    franchise_id INT
+    franchise_id INT,
+    boissons BOOLEAN,
+    mailing BOOLEAN,
+    premium BOOLEAN
 );
 
 
