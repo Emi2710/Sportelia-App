@@ -18,7 +18,7 @@ CREATE TABLE franchise(
     password VARCHAR(255) NOT NULL,
     profile_pic VARCHAR, 
     description TEXT, 
-    isActive BOOLEAN,
+    isActive BOOLEAN
 );
 
 
