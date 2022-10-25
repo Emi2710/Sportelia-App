@@ -13,7 +13,7 @@ const Franchises = ({data}) => {
     
     const getFranchises = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/franchise/structure/${data.id}`)
+            const response = await fetch(`/api/franchise/structure/${data.id}`)
             const jsonData = await response.json()
 
             setFranchises(jsonData)

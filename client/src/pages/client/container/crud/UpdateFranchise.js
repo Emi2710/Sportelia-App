@@ -22,7 +22,7 @@ const UpdateFranchise = ({franchise}) => {
       const body = { name, email, profile_pic, description, isActive };
       const templateParams = { email: email}
       const response = await fetch(
-        `http://localhost:8000/api/client/franchise/${franchise.id}`,
+        `/client/franchise/${franchise.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

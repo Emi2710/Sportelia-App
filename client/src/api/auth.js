@@ -3,19 +3,19 @@ axios.defaults.withCredentials = true
 
 //LOGIN
 export async function onClientLogin(loginData) {
-  return await axios.post('http://localhost:8000/api/client/login', loginData)
+  return await axios.post('/api/client/login', loginData)
 }
 
 export async function onFranchiseLogin(loginData) {
-  return await axios.post('http://localhost:8000/api/franchise/login', loginData)
+  return await axios.post('/api/franchise/login', loginData)
 }
 
 export async function onStructureLogin(loginData) {
-  return await axios.post('http://localhost:8000/api/structure/login', loginData)
+  return await axios.post('/api/structure/login', loginData)
 }
 
 export async function onLogout() {
-  return await axios.get('http://localhost:8000/api/logout')
+  return await axios.get('/api/logout')
 }
 
 
@@ -23,7 +23,7 @@ export async function onLogout() {
 
 export async function onFranchiseRegistration(registrationData) {
   return await axios.post(
-    'http://localhost:8000/api/client/addFranchise',
+    '/api/client/addFranchise',
     registrationData
   )
 }
@@ -31,13 +31,13 @@ export async function onFranchiseRegistration(registrationData) {
 //EMAIL
 export async function onAddEmail(emailData) {
   return await axios.post(
-    'http://localhost:8000/api/sendEmail', emailData
+    '/api/sendEmail', emailData
   )
 }
 
 export async function onChangeEmail(onChangeEmail) {
   return await axios.post(
-    'http://localhost:8000/api/sendEmail/update', onChangeEmail
+    '/api/sendEmail/update', onChangeEmail
   )
 }
 

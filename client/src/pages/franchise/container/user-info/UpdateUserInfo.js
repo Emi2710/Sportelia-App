@@ -16,7 +16,7 @@ const UpdateUserInfo = ({data}) => {
     try {
       const body = { name, email };
       const response = await fetch(
-        `http://localhost:8000/api/franchise/${data.id}`,
+        `/api/franchise/${data.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

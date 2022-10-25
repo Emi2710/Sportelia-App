@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const cors = require("cors");
 const pool = require("./db/index");
+const path = require("path")
 
 
 //PASSPORT MIDDLEWARE
@@ -15,6 +16,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(passport.initialize());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")))
+}
 
 //IMPORT ROUTES
 const clientRoutes = require('./routes/client');
@@ -30,5 +35,5 @@ app.use('/api', emailRoutes);
 
 
 app.listen(8000, () => {
-    console.log("Server running successfully in port 8000")
+    console.log(`Server running successfully in port ${PORT}`)
 });

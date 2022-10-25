@@ -10,7 +10,7 @@ const Dashboard = () => {
     
     const getData = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/structure/${secureLocalStorage.getItem('email')}`)
+            const response = await fetch(`/api/structure/${secureLocalStorage.getItem('email')}`)
             const jsonData = await response.json()
 
             setPersonalInfo(jsonData)

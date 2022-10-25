@@ -11,7 +11,7 @@ const Franchises = () => {
     
     const getFranchises = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/franchises")
+            const response = await fetch("/api/franchises")
             const jsonData = await response.json()
 
             setFranchises(jsonData)
