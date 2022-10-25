@@ -50,17 +50,19 @@ const AddFranchise = ({data}) => {
             profile_pic: '',
             description: '', })
       
-       emailjs.send('service_wn34fcm', 'template_f928oug', values, 'xr2eEICvP8Ow1wZ4X')
+       /*emailjs.send('service_z3o02ig', 'template_venjww4', emailValues, 'xr2eEICvP8Ow1wZ4X')
       .then(response => {
         console.log('SUCCESS!', response);
         setEmailValues({
           email: values.email,
-          password: values.passwords,
-        });
+          password: values.password
+        })
         
       }, error => {
         console.log('FAILED...', error);
-      });
+      });*/
+
+      window.location = "/";
 
       
     } catch (error) {

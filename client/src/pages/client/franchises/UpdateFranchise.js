@@ -31,12 +31,12 @@ const UpdateFranchise = ({franchise}) => {
           body: JSON.stringify(body)
         });
 
-        emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
+        /*emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
               .then(response => {
                 console.log('SUCCESS!', response); 
               }, error => {
                 console.log('FAILED...', error);
-              })
+              })*/
       
   
       window.location = "/";

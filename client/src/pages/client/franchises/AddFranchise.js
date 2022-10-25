@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { onFranchiseRegistration } from '../../../api/auth'
 import { images } from '../../../assets'
 
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 
 const AddFranchise = () => {
+
     const [values, setValues] = useState({
     name: '',
     email: '',
@@ -39,20 +40,19 @@ const AddFranchise = () => {
             password: '',
             profile_pic: '',
             description: '', })
-
-      emailjs.send('service_wn34fcm', 'template_f928ougs', values, 'xr2eEICvP8Ow1wZ4X')
+      
+      /*emailjs.send('service_z3o02ig', 'template_venjww4', 'xr2eEICvP8Ow1wZ4X')
       .then(response => {
         console.log('SUCCESS!', response);
-        setEmailValues({
-          email: values.email,
-          password: values.password,
-        });
+        
         
       }, error => {
         console.log('FAILED...', error);
-      });
+      });*/
 
 
+      
+      window.location = "/";
       
     } catch (error) {
       setError(error.response.data.errors[0].msg)

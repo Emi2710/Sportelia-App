@@ -17,7 +17,6 @@ const Dashboard = () => {
             const jsonData = await response.json()
 
             setPersonalInfo(jsonData)
-            console.log(jsonData)
            
         } catch (error) {
             console.error(error.message);

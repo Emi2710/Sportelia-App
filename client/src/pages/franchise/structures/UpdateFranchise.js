@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { images } from '../../../assets';
 
+import emailjs from '@emailjs/browser'
+
 
 const UpdateFranchise = ({franchise}) => {
 
@@ -31,12 +33,12 @@ const UpdateFranchise = ({franchise}) => {
         }
       );
 
-      emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
+      /*emailjs.send('service_wn34fcm', 'template_gq0wavz', templateParams, 'xr2eEICvP8Ow1wZ4X')
               .then(response => {
                 console.log('SUCCESS!', response); 
               }, error => {
                 console.log('FAILED...', error);
-              })
+              })*/
 
       window.location = "/";
     } catch (err) {

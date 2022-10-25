@@ -20,11 +20,13 @@ app.use(passport.initialize());
 const clientRoutes = require('./routes/client');
 const franchiseRoutes = require('./routes/franchise');
 const structureRoutes = require('./routes/structure');
+const emailRoutes = require('./routes/email')
 
 //INITIALIZE ROUTES
 app.use('/api', clientRoutes);
 app.use('/api', franchiseRoutes);
 app.use('/api', structureRoutes);
+app.use('/api', emailRoutes);
 
 
 app.listen(8000, () => {
