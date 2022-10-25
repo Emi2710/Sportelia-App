@@ -22,12 +22,6 @@ CREATE TABLE franchise(
 );
 
 
-ALTER TABLE franchise 
-ADD CONSTRAINT FK_client
-FOREIGN KEY(client_id) REFERENCES client(id) 
-ON DELETE RESTRICT 
-ON UPDATE RESTRICT;
-
 -- structure table
 
 CREATE TABLE structure( 
