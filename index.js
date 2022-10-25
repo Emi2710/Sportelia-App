@@ -4,7 +4,6 @@ const { PORT, CLIENT_URL } = require('./constants')
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const cors = require("cors");
-const pool = require("./db/index");
 const path = require("path")
 
 
@@ -34,6 +33,6 @@ app.use('/api', structureRoutes);
 app.use('/api', emailRoutes);
 
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log(`Server running successfully in port ${PORT}`)
 });
