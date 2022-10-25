@@ -39,17 +39,12 @@ const App = () => {
         <Route element={<PrivateRoutes />}>
           <Route path='/' exact element={<Home />} />
 
-          <Route path="/client/franchises" exact element={<Franchises />} />
-
         </Route>
 
         <Route element={<RestrictedRoutes />}>
 
           <Route path='/login' exact element={<Login />} />
 
-          <Route path='/client/login' exact element={<ClientLogin />} />
-          <Route path='/franchise/login' exact element={<FranchiseLogin />} />
-          <Route path='/structure/login' exact element={<StructureLogin />} />
 
         </Route>
       </Routes>

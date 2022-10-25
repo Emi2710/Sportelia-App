@@ -6,12 +6,10 @@ import { images } from '../../../assets';
 
 const Franchises = ({data}) => {
     
-    const [filterGallery, setFilterGallery] = useState([]);
 
     const [franchises, setFranchises] = useState([]);
+    const [searchStructure, setSearchStructure] = useState("")
 
-    const [actif, setActif] = useState(false)
-    const showDropdown = () => setActif(!actif)
     
     const getFranchises = async () => {
         try {
@@ -19,7 +17,6 @@ const Franchises = ({data}) => {
             const jsonData = await response.json()
 
             setFranchises(jsonData)
-            setFilterGallery(jsonData)
 
            
         } catch (error) {
@@ -40,7 +37,10 @@ const Franchises = ({data}) => {
         <div className='franchise-table-header mt-5 d-flex justify-content-between align-items-center'>
             <h2 className=''>Toutes vos structures</h2>
             <div className='d-flex align-items-center'>
-                <img src={images.loop} alt="Icone de recherche" className='loop-img' />
+                <div className='d-flex'>
+                    <img src={images.loop} alt="Icone de recherche" className='loop-img' /> 
+                    <input className='loop-input' onChange={e => setSearchStructure(e.target.value)}></input>
+                </div>
                 <AddFranchise data={data}/>
             </div>    
         </div>
@@ -52,12 +52,9 @@ const Franchises = ({data}) => {
                     <p className=''>Nom</p>   
                 </div>
                  <div>
-                        <p className='dropbtn d-flex mt-2' onClick={showDropdown}>Statut <img src={images.statut} alt="Flèche vers le bas" /></p>
+                        <p className='dropbtn d-flex mt-2'>Statut <img src={images.statut} alt="Flèche vers le bas" /></p>
 
-                        <ul className={actif ? 'dropdown-content dropdown-active' : 'dropdown-content'}>
-                            <li><button className='btn-actif'>Actif</button></li>
-                            <li><button className='btn-desactive'>Désactivé</button></li>
-                        </ul> 
+                        
 
                     </div>
                     
@@ -67,7 +64,13 @@ const Franchises = ({data}) => {
                 
             </div>
             <div className='franchise-table-container'>
-                {franchises.map(franchise => (
+                {franchises.filter((data) => {
+                    if(searchStructure == "") {
+                        return data
+                    } else if(data.name.toLowerCase().includes(searchStructure.toLocaleLowerCase())) {
+                        return data
+                    } 
+                }).map(franchise => (
                 <div key={franchise.id} className='franchise d-flex justify-content-around align-items-center'>
                     <div className='w-25 franchise-info'>
                         <p className='franchise-name'>{franchise.name}</p>

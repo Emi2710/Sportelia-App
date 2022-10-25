@@ -11,7 +11,7 @@ const { registerFranchise,
      } = require('../controllers/client');
 
 const { validationMiddleware } = require('../middlewares/validation-middleware');
-const {  clientLoginValidation, franchiseRegisterValidation  } = require('../validators/auth');
+const {  clientLoginValidation, franchiseRegisterValidation } = require('../validators/auth');
 const router = Router()
 
 router.post('/client/addFranchise', franchiseRegisterValidation, validationMiddleware, registerFranchise)

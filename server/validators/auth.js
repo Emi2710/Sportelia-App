@@ -56,6 +56,7 @@ const clientLoginFieldsCheck = check('email').custom(async (value, { req }) => {
   req.user = user.rows[0]
 })
 
+
 // franchise login validation
 const franchiseLoginFieldsCheck = check('email').custom(async (value, { req }) => {
   const user = await db.query('SELECT * from franchise WHERE email = $1', [value])
@@ -107,6 +108,6 @@ module.exports = {
   
   clientLoginValidation: [clientLoginFieldsCheck],
   franchiseLoginValidation: [franchiseLoginFieldsCheck],
-  structureLoginValidation: [structureLoginFieldsCheck]
+  structureLoginValidation: [structureLoginFieldsCheck],
 
 }
