@@ -4,7 +4,7 @@ import { images } from '../../../assets';
 
 import secureLocalStorage from 'react-secure-storage'
 import UpdateUserInfo from './user-info/UpdateUserInfo';
-import Franchises from './crud/Franchises';
+import Structures from './crud/Structures';
 
 const Dashboard = () => {
 
@@ -52,7 +52,7 @@ const Dashboard = () => {
         
           {personalInfo.map(data => (
             <div className='franchise-container' key={data.id}>
-             <Franchises data={data} /> 
+             <Structures data={data} /> 
             </div>  
           ))}
           

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import AddFranchise from './AddFranchise';
-import UpdateFranchise from './UpdateFranchise';
+import AddStructure from './AddStructure';
+import UpdateStructure from './UpdateStructure';
 
 import { images } from '../../../../assets';
 
@@ -41,7 +41,7 @@ const Franchises = ({data}) => {
                     <img src={images.loop} alt="Icone de recherche" className='loop-img' /> 
                     <input className='loop-input' onChange={e => setSearchStructure(e.target.value)}></input>
                 </div>
-                <AddFranchise data={data}/>
+                <AddStructure data={data}/>
             </div>    
         </div>
         
@@ -83,7 +83,7 @@ const Franchises = ({data}) => {
                     </p>
                     {console.log(franchise)}
                     </div>
-                    <UpdateFranchise franchise={franchise} />
+                    <UpdateStructure franchise={franchise} />
                     
                 </div>
             ))} 

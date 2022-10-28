@@ -21,7 +21,7 @@ const UpdateFranchise = ({franchise}) => {
     try {
       const body = { name, email, profile_pic, description, isActive };
       const response = await fetch(
-        `/client/franchise/${franchise.id}`,
+        `/api/client/franchise/${franchise.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
