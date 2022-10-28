@@ -36,3 +36,4 @@ app.use('/api', emailRoutes);
 app.listen(PORT, () => {
     console.log(`Server running successfully in port ${PORT}`)
 });
+
