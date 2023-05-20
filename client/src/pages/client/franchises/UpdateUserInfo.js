@@ -8,6 +8,11 @@ const UpdateUserInfo = ({data}) => {
   const [name, setName] = useState(data.name);
   const [email, setEmail] = useState(data.email);
   
+<<<<<<< HEAD
+=======
+  
+  
+>>>>>>> parent of 96e9d5b (reorganized & cleaned some code)
 
 
     const updateData = async e => {
@@ -15,7 +20,11 @@ const UpdateUserInfo = ({data}) => {
     try {
       const body = { name, email };
       const response = await fetch(
+<<<<<<< HEAD
         `/api/client/${data.id}`,
+=======
+        `/api/franchise/${data.id}`,
+>>>>>>> parent of 96e9d5b (reorganized & cleaned some code)
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
