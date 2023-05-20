@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { onChangeEmail } from '../../../../api/auth';
-import { images } from '../../../../assets';
+import { onChangeEmail } from '../../../api/auth';
+import { images } from '../../../assets';
 
 
 

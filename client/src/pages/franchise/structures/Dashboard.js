@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import './Dashboard.css';
 import { images } from '../../../assets';
+import { Link } from 'react-router-dom';
 
 import secureLocalStorage from 'react-secure-storage'
+<<<<<<< HEAD:client/src/pages/franchise/container/Dashboard.js
 import UpdateUserInfo from './user-info/UpdateUserInfo';
 import Structures from './crud/Structures';
+=======
+import UpdateUserInfo from './UpdateUserInfo';
+import Franchises from './Franchises';
+>>>>>>> parent of 96e9d5b (reorganized & cleaned some code):client/src/pages/franchise/structures/Dashboard.js
 
 const Dashboard = () => {
 

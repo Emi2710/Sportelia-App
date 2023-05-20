@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { images } from '../../../../assets'
+import { images } from '../../../assets'
 //import { onStructureRegistration } from '../../../api/auth'
 import axios from 'axios'
-import { onAddEmail } from '../../../../api/auth'
+import { onAddEmail } from '../../../api/auth'
 
 
 

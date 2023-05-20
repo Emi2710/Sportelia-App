@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddStructure from './AddStructure';
 import UpdateStructure from './UpdateStructure';
 
-import { images } from '../../../../assets';
+import { images } from '../../../assets';
 
 const Franchises = ({data}) => {
     

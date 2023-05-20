@@ -3,8 +3,8 @@ import './Dashboard.css';
 import { images } from '../../../assets';
 
 import secureLocalStorage from 'react-secure-storage'
-import UpdateUserInfo from './user-info/UpdateUserInfo';
-import Franchises from './crud/Franchises';
+import UpdateUserInfo from './UpdateUserInfo';
+import Franchises from './Franchises';
 
 const Dashboard = () => {
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 import Client from './client/Client'
 import Franchise from './franchise/Franchise'
